@@ -1,0 +1,3 @@
+repository "RushAndRival/RushAndRival@6872073349017@cloud"
+  path "/"
+    smartbranch "/main/nivel2"
