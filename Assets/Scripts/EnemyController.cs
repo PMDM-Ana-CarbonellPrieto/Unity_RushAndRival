@@ -24,7 +24,7 @@ public class EnemyController : MonoBehaviour
         Quaternion rotation;
         if (GameManager.currentObjective == tag)
         {
-            speed = GameManager.currentSpeed - 5;
+            speed = GameManager.currentSpeed - 10;
             rotation = Quaternion.LookRotation(transform.parent.position - rb.transform.position);
         } else {
             speed = GameManager.currentSpeed;
