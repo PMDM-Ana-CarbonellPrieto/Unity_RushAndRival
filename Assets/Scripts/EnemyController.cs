@@ -37,5 +37,6 @@ public class EnemyController : MonoBehaviour
     private void FixedUpdate()
     {
         rb.AddForce(car.transform.forward * speed, ForceMode.Acceleration);
+        rb.AddForce(Vector3.down * 50, ForceMode.Acceleration);
     }
 }

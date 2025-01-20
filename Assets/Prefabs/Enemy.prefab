@@ -130,7 +130,7 @@ Rigidbody:
   m_GameObject: {fileID: 8851241249301652726}
   serializedVersion: 4
   m_Mass: 200
-  m_Drag: 2
+  m_Drag: 1
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -175,7 +175,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objective: {fileID: 0}
   car: {fileID: 6779782012228504274}
-  speed: 50
 --- !u!1001 &1178287628341215195
 PrefabInstance:
   m_ObjectHideFlags: 0
