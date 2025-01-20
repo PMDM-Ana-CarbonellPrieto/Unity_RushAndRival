@@ -28,5 +28,6 @@ public class CarController : MonoBehaviour
     private void FixedUpdate()
     {
         rb.AddForce(car.transform.forward * Input.GetAxis("Vertical") * speed, ForceMode.Acceleration);
+        rb.AddForce(Vector3.down * 50, ForceMode.Acceleration);
     }
 }

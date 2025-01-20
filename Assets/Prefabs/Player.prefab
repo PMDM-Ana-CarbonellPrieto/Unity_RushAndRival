@@ -75,8 +75,8 @@ Camera:
   m_GameObject: {fileID: 5811597886152370957}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.70868003, g: 0.79579806, b: 0.9326978, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -222,7 +222,7 @@ Rigidbody:
   m_GameObject: {fileID: 8851241249301652726}
   serializedVersion: 4
   m_Mass: 200
-  m_Drag: 2
+  m_Drag: 1
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -254,7 +254,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carModel: {fileID: 2733145463249830441}
   car: {fileID: 8372507290066966073}
-  speed: 50
 --- !u!1001 &2967727571014729592
 PrefabInstance:
   m_ObjectHideFlags: 0
