@@ -11,6 +11,7 @@ public class CoinsTrigger : MonoBehaviour
     {
         if (other.CompareTag("Coin"))
         {
+            GameManager.currentCoins++;
             counter++;
             print("Moneda recogida. Total: " + counter);
             Destroy(other.gameObject);
