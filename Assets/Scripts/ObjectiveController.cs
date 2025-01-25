@@ -12,6 +12,14 @@ public class ObjectiveController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.currentObjective == tag)
+        {
+            GameManager.currentSpeed = GameManager.objectiveSpeed;
+        } else
+        {
+            GameManager.currentSpeed = GameManager.defaultSpeed;
+        }
+
         if (hasObjective)
         {
             objective.transform.position = transform.position + new Vector3(0, .5f, 0);
@@ -28,7 +36,7 @@ public class ObjectiveController : MonoBehaviour
 
         if (hasObjective && other.tag == tag)
         {
-            print("Finish");
+            GameManager.isStarted = false;
         }
     }
 

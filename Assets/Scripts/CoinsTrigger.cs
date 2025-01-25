@@ -24,8 +24,8 @@ public class CoinsTrigger : MonoBehaviour
 
     IEnumerator BoostCar()
     {
-        GameManager.currentSpeed = 140;
+        GameManager.defaultSpeed = 140;
         yield return new WaitForSeconds(2.5f);
-        GameManager.currentSpeed = 70;
+        GameManager.defaultSpeed = 70;
     }
 }

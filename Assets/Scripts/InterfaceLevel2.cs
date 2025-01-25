@@ -2,45 +2,69 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class InterfaceLevel2 : MonoBehaviour
 {
-    public TMP_Text count;
-    public Transform player;
-    public Transform enemy;
-    public Transform objective;
+    public TMP_Text countText;
+    public TMP_Text finalText;
 
     // Start is called before the first frame update
     void Start()
     {
+        GameManager.currentSpeed = 0;
+        GameManager.currentObjective = "";
         StartCoroutine(StartRound());
     }
 
-    // Update is called once per frame
+     // Update is called once per frame
     void Update()
     {
-        
+        if (!GameManager.isStarted && GameManager.currentObjective != "")
+        {
+            StartCoroutine(EndRound(GameManager.currentObjective));
+        }
     }
 
     private IEnumerator StartRound() {
-        //player.GetComponent<CarController>().enable = false;
-        //enemy.GetComponent<EnemyController>().enable = false;
-        GameManager.currentSpeed = 0;
+        GameManager.isStarted = false;
 
-        int seconds = 3;
-        while (seconds > 0)
+        int count = 3;
+        while (count > 0)
         {
-            count.text = seconds.ToString();
+            countText.text = count.ToString();
             yield return new WaitForSeconds(1f);
-            seconds--;
+            count--;
         }
-        count.text = "Start";
+        countText.text = "Start";
         yield return new WaitForSeconds(1f);
-        count.text = "";
+        countText.text = "";
 
-        GameManager.currentSpeed = 70;
+        GameManager.isStarted = true;
+    }
 
-        //player.GetComponent<CarController>().enable = true;
-        //enemy.GetComponent<EnemyController>().enable = true;
+    private IEnumerator EndRound(string winner)
+    {
+        if (winner == "Player")
+        {
+            countText.text = "You win!";
+            GameManager.currentEnemyCoins--;
+        }
+        else
+        {
+            countText.text = "You lose!";
+            GameManager.currentCoins--;
+        }
+
+        yield return new WaitForSeconds(2f);
+
+        if (GameManager.currentCoins == 0 || GameManager.currentEnemyCoins == 0)
+        {
+            SceneManager.LoadScene("FinalScene");
+        }
+        else
+        {
+            SceneManager.LoadScene("Level2Scene");
+        }
     }
 }

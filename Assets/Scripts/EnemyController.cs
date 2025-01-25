@@ -14,20 +14,21 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        speed = GameManager.currentSpeed;
+        speed = GameManager.defaultSpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(!GameManager.isStarted) return;
         car.transform.position = rb.position - new Vector3(0, .5f, 0);
         Quaternion rotation;
         if (GameManager.currentObjective == tag)
         {
-            speed = GameManager.currentSpeed - 10;
+            speed = GameManager.objectiveSpeed;
             rotation = Quaternion.LookRotation(transform.parent.position - rb.transform.position);
         } else {
-            speed = GameManager.currentSpeed;
+            speed = GameManager.defaultSpeed;
             rotation = Quaternion.LookRotation(objective.position - rb.transform.position);
         }
         float diff = (rotation.y - car.transform.rotation.y) * .9f;
@@ -36,6 +37,7 @@ public class EnemyController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if(!GameManager.isStarted) return;
         rb.AddForce(car.transform.forward * speed, ForceMode.Acceleration);
         rb.AddForce(Vector3.down * 50, ForceMode.Acceleration);
     }

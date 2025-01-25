@@ -30,7 +30,7 @@ public class InterfaceLevel1 : MonoBehaviour
     private IEnumerator StartRound()
     {
         objective.text = "";
-        GameManager.currentSpeed = 0;
+        GameManager.defaultSpeed = 0;
 
         int seconds = 3;
         while (seconds > 0)
@@ -44,7 +44,7 @@ public class InterfaceLevel1 : MonoBehaviour
         yield return new WaitForSeconds(1f);
         count.text = "";
 
-        GameManager.currentSpeed = 70;
+        GameManager.defaultSpeed = 70;
         GameManager.currentCoins = 0;
         showCoins = true;
 
@@ -60,7 +60,7 @@ public class InterfaceLevel1 : MonoBehaviour
         yield return new WaitForSeconds(1f);
         timer.text = "";
         objective.text = "";
-        GameManager.currentSpeed = 0;
+        GameManager.defaultSpeed = 0;
         
     }
 }
