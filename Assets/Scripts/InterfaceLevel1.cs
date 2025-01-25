@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class InterfaceLevel1 : MonoBehaviour
 {
@@ -48,19 +49,22 @@ public class InterfaceLevel1 : MonoBehaviour
         GameManager.currentCoins = 0;
         showCoins = true;
 
-        int maxTimePlay = 50;
+        int maxTimePlay = 40;
         while (maxTimePlay > 0)
         {
             timer.text = maxTimePlay.ToString();
             yield return new WaitForSeconds(1f);
             maxTimePlay--;
         }
-        timer.text = "Fail level";
         showCoins = false;
+        yield return new WaitForSeconds(1f);
+        count.text = "Fail Level";
         yield return new WaitForSeconds(1f);
         timer.text = "";
         objective.text = "";
         GameManager.currentSpeed = 0;
-        
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("FailScene");
+
     }
 }
