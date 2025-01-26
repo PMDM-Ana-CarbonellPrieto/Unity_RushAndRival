@@ -17,11 +17,21 @@ public class InterfaceFinal : MonoBehaviour
         timeText.text += GameManager.currentTime + "\"";
         coinsText.text = GameManager.currentCoins.ToString();
         lifesText.text = GameManager.currentLifes.ToString();
-        scoreText.text += "200";
+        scoreText.text += CalculateScore().ToString();
     }
 
     public void Restart()
     {
         SceneManager.LoadScene("TitleScene");
+    }
+
+    private int CalculateScore()
+    {
+        int score = 0;
+        int time = GameManager.defaultTimer - GameManager.currentTime;
+        score += time / 10 * GameManager.defaultScore;
+        score += GameManager.currentCoins * GameManager.defaultScore;
+        score += GameManager.currentLifes * GameManager.defaultScore;
+        return score;
     }
 }

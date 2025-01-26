@@ -4,6 +4,7 @@ public class GameManager
     public static int objectiveSpeed = 60;
     public static int boostSpeed = 140;
     public static int defaultTimer = 40;
+    public static int defaultScore = 50;
 
     public static GameState gameState = GameState.PREPARED;
     public static string currentObjective = "";
