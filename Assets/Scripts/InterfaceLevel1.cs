@@ -23,7 +23,7 @@ public class InterfaceLevel1 : MonoBehaviour
         GameManager.currentTime = 0;
         GameManager.currentCoins = 0;
         GameManager.currentLifes = 0;
-        timerText.text = "Timer: " + GameManager.defaultTimer;
+        timerText.text = "Timer: " + GameManager.defaultTimer + "\"";
         actionButton.gameObject.SetActive(false);
         exitButton.gameObject.SetActive(false);
     }
@@ -46,7 +46,7 @@ public class InterfaceLevel1 : MonoBehaviour
         {
             yield return new WaitForSeconds(1f);
             time--;
-            timerText.text = "Timer: " + time;
+            timerText.text = "Timer: " + time + "\"";
         }
 
         StartCoroutine(EndLevel(time));
