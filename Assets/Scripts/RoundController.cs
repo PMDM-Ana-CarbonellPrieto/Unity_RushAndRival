@@ -16,7 +16,7 @@ public class RoundController : MonoBehaviour
 
     private IEnumerator StartRound()
     {
-        GameManager.isStarted = false;
+        GameManager.gameState = GameState.PREPARED;
 
         int count = 3;
         while (count > 0)
@@ -30,6 +30,6 @@ public class RoundController : MonoBehaviour
         yield return new WaitForSeconds(1f);
         countText.text = "";
 
-        GameManager.isStarted = true;
+        GameManager.gameState = GameState.STARTED;
     }
 }

@@ -9,8 +9,8 @@ public class InterfaceLevel1 : MonoBehaviour
     public TMP_Text finishText;
     public TMP_Text coinsText;
     public TMP_Text timerText;
-    public Transform player;
-    public bool showCoins = false;
+
+    public bool isStarted = false;
 
     // Start is called before the first frame update
     void Start()
@@ -22,26 +22,22 @@ public class InterfaceLevel1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (showCoins)
-        {
-            coinsText.text = GameManager.currentCoins + "/4";
-        }
-
-        if (GameManager.isStarted && !showCoins) {
-            showCoins = true;
+        coinsText.text = GameManager.currentCoins + "/4";
+        if (GameManager.gameState == GameState.STARTED && !isStarted) {
+            isStarted = true;
             StartCoroutine(StartTimer());
         }
     }
 
     private IEnumerator StartTimer()
     {
-        int maxTimePlay = GameManager.defaultTimer;
+        int maxTime = GameManager.defaultTimer;
 
-        while (maxTimePlay > 0)
+        while (maxTime > 0 && GameManager.gameState != GameState.FINISHED)
         {
-            timerText.text = maxTimePlay.ToString();
+            timerText.text = maxTime.ToString();
             yield return new WaitForSeconds(1f);
-            maxTimePlay--;
+            maxTime--;
         }
 
         finishText.text = "Fail Level";

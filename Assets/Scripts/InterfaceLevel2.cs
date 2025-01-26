@@ -19,7 +19,7 @@ public class InterfaceLevel2 : MonoBehaviour
      // Update is called once per frame
     void Update()
     {
-        if (!GameManager.isStarted && GameManager.currentObjective != "" && !isFinished)
+        if (GameManager.gameState == GameState.FINISHED && !isFinished)
         {
             isFinished = true;
             StartCoroutine(EndRound(GameManager.currentObjective));

@@ -22,7 +22,7 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         car.transform.position = rb.position - new Vector3(0, .5f, 0);
-        if(!GameManager.isStarted) return;
+        if(GameManager.gameState != GameState.STARTED) return;
         Quaternion rotation;
         if (GameManager.currentObjective == tag)
         {
@@ -39,7 +39,7 @@ public class EnemyController : MonoBehaviour
     private void FixedUpdate()
     {
         rb.AddForce(Vector3.down * 50, ForceMode.Acceleration);
-        if(!GameManager.isStarted) return;
+        if(GameManager.gameState != GameState.STARTED) return;
         rb.AddForce(car.transform.forward * speed, ForceMode.Acceleration);
     }
 }

@@ -21,7 +21,7 @@ public class CarController : MonoBehaviour
     void Update()
     {
         car.transform.position = rb.position - new Vector3(0, .5f, 0);
-        if(!GameManager.isStarted) return;
+        if(GameManager.gameState != GameState.STARTED) return;
         car.transform.eulerAngles += new Vector3(0, Input.GetAxis("Horizontal") * .25f, 0);
         carModel.transform.eulerAngles = car.transform.eulerAngles + new Vector3(0, 180 + Input.GetAxis("Horizontal") * 25, 0);
     }
@@ -29,7 +29,7 @@ public class CarController : MonoBehaviour
     private void FixedUpdate()
     {
         rb.AddForce(Vector3.down * 50, ForceMode.Acceleration);
-        if(!GameManager.isStarted) return;
+        if(GameManager.gameState != GameState.STARTED) return;
         speed = GameManager.currentSpeed;
         rb.AddForce(car.transform.forward * Input.GetAxis("Vertical") * speed, ForceMode.Acceleration);
     }

@@ -15,6 +15,10 @@ public class Level1Controller : MonoBehaviour
         {
             StartCoroutine(TakeBoost());
         }
+        else if (other.CompareTag("Finish"))
+        {
+            GameManager.gameState = GameState.FINISHED;
+        }
     }
 
     IEnumerator TakeBoost()

@@ -21,7 +21,7 @@ public class Level2Controller : MonoBehaviour
             GameManager.currentSpeed = GameManager.defaultSpeed;
         }
 
-        if (GameManager.isStarted && hasObjective)
+        if (GameManager.gameState == GameState.STARTED && hasObjective)
         {
             objective.transform.position = transform.position + new Vector3(0, .5f, 0);
         }
@@ -37,12 +37,12 @@ public class Level2Controller : MonoBehaviour
 
         if (hasObjective && other.CompareTag(tag))
         {
-            GameManager.isStarted = false;
+            GameManager.gameState = GameState.FINISHED;
         }
     }
 
     private void OnCollisionEnter(Collision other) {
-        if(!GameManager.isStarted) return;
+        if(GameManager.gameState != GameState.STARTED) return;
         if (!isWaiting && (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Player")))
         {
             if (!hasObjective) GameManager.currentObjective = tag;
