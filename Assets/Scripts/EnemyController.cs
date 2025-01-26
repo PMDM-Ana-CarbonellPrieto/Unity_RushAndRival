@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public Transform objective;
+    public Transform target;
     public GameObject car;
 
     private float speed;
@@ -20,13 +21,13 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!GameManager.isStarted) return;
         car.transform.position = rb.position - new Vector3(0, .5f, 0);
+        if(!GameManager.isStarted) return;
         Quaternion rotation;
         if (GameManager.currentObjective == tag)
         {
             speed = GameManager.objectiveSpeed;
-            rotation = Quaternion.LookRotation(transform.parent.position - rb.transform.position);
+            rotation = Quaternion.LookRotation(target.position - rb.transform.position);
         } else {
             speed = GameManager.defaultSpeed;
             rotation = Quaternion.LookRotation(objective.position - rb.transform.position);
@@ -37,8 +38,8 @@ public class EnemyController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        rb.AddForce(Vector3.down * 50, ForceMode.Acceleration);
         if(!GameManager.isStarted) return;
         rb.AddForce(car.transform.forward * speed, ForceMode.Acceleration);
-        rb.AddForce(Vector3.down * 50, ForceMode.Acceleration);
     }
 }

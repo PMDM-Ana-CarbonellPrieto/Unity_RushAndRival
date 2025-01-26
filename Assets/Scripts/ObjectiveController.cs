@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObjectiveController : MonoBehaviour
 {
     private bool hasObjective = false;
-    private bool waiting = false;
+    private bool isWaiting = false;
 
     public GameObject objective;
 
@@ -41,7 +41,7 @@ public class ObjectiveController : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision other) {
-        if (!waiting && (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Player"))
+        if (!isWaiting && (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Player"))
         {
             if (!hasObjective) GameManager.currentObjective = tag;
             hasObjective = !hasObjective;
@@ -51,8 +51,8 @@ public class ObjectiveController : MonoBehaviour
 
     private IEnumerator WaitForObjective()
     {
-        waiting = true;
-        yield return new WaitForSeconds(2f);
-        waiting = false;
+        isWaiting = true;
+        yield return new WaitForSeconds(1f);
+        isWaiting = false;
     }
 }

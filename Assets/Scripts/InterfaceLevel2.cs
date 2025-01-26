@@ -9,6 +9,8 @@ public class InterfaceLevel2 : MonoBehaviour
     public TMP_Text countText;
     public TMP_Text finalText;
 
+    private bool isEnded = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,8 +22,9 @@ public class InterfaceLevel2 : MonoBehaviour
      // Update is called once per frame
     void Update()
     {
-        if (!GameManager.isStarted && GameManager.currentObjective != "")
+        if (!GameManager.isStarted && GameManager.currentObjective != "" && !isEnded)
         {
+            isEnded = true;
             StartCoroutine(EndRound(GameManager.currentObjective));
         }
     }
