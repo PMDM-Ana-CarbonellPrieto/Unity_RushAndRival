@@ -41,7 +41,7 @@ public class InterfaceLevel2 : MonoBehaviour
         else
         {
             finalText.text = "You lose!";
-            GameManager.currentCoins--;
+            GameManager.currentLifes--;
         }
 
         yield return new WaitForSeconds(2f);
