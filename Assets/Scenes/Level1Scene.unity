@@ -247,38 +247,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 849205687}
-  - {fileID: 1099300520}
-  - {fileID: 1829092397}
-  - {fileID: 1515244525}
-  - {fileID: 1456609331}
-  - {fileID: 2134452382}
-  - {fileID: 417801854}
-  - {fileID: 1040695075}
-  - {fileID: 1839873914}
-  - {fileID: 110222660}
-  - {fileID: 1227278099}
-  - {fileID: 732388778}
-  - {fileID: 747283205}
-  - {fileID: 1865596278}
-  - {fileID: 1084790815}
-  - {fileID: 2109170267}
-  - {fileID: 256198544}
-  - {fileID: 1452759367}
-  - {fileID: 1979541608}
-  - {fileID: 1399433572}
-  - {fileID: 1392391913}
-  - {fileID: 1367271809}
-  - {fileID: 2132423588}
-  - {fileID: 1274138226}
-  - {fileID: 1252570288}
-  - {fileID: 1751196698}
-  - {fileID: 1026700249}
-  - {fileID: 1797050240}
-  - {fileID: 679152913}
-  - {fileID: 1196248001}
-  - {fileID: 1664163055}
+  m_Children: []
   m_Father: {fileID: 1450127300}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &200139306
@@ -405,7 +374,7 @@ MonoBehaviour:
   finalText: {fileID: 1122573917}
   coinsText: {fileID: 289760882}
   timerText: {fileID: 2043309781}
-  restartButton: {fileID: 1521291911}
+  actionButton: {fileID: 1521291911}
   exitButton: {fileID: 1730053223}
 --- !u!114 &200139312
 MonoBehaviour:
@@ -837,7 +806,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 343, y: 205}
+  m_AnchoredPosition: {x: 335, y: 205}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &308559109
@@ -3065,7 +3034,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Restart
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3456,6 +3425,37 @@ Transform:
   - {fileID: 1284433427}
   - {fileID: 1086010800}
   - {fileID: 1889084312}
+  - {fileID: 679152913}
+  - {fileID: 1979541608}
+  - {fileID: 417801854}
+  - {fileID: 732388778}
+  - {fileID: 1084790815}
+  - {fileID: 1367271809}
+  - {fileID: 1751196698}
+  - {fileID: 1839873914}
+  - {fileID: 1099300520}
+  - {fileID: 256198544}
+  - {fileID: 1515244525}
+  - {fileID: 1797050240}
+  - {fileID: 1456609331}
+  - {fileID: 1399433572}
+  - {fileID: 747283205}
+  - {fileID: 1274138226}
+  - {fileID: 1252570288}
+  - {fileID: 110222660}
+  - {fileID: 1865596278}
+  - {fileID: 1227278099}
+  - {fileID: 2134452382}
+  - {fileID: 1196248001}
+  - {fileID: 1392391913}
+  - {fileID: 1829092397}
+  - {fileID: 1026700249}
+  - {fileID: 1452759367}
+  - {fileID: 849205687}
+  - {fileID: 1664163055}
+  - {fileID: 2109170267}
+  - {fileID: 2132423588}
+  - {fileID: 1040695075}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1452759366 stripped
@@ -3821,7 +3821,7 @@ GameObject:
   - component: {fileID: 1521291912}
   - component: {fileID: 1521291911}
   m_Layer: 5
-  m_Name: RestartButton
+  m_Name: ActionButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3893,7 +3893,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 200139311}
         m_TargetAssemblyTypeName: InterfaceLevel1, Assembly-CSharp
-        m_MethodName: Restart
+        m_MethodName: DoAction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4840,7 +4840,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 'Timer: '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class InterfaceLevel2 : MonoBehaviour
 {
     public TMP_Text finalText;
+    public TMP_Text playerLifes;
+    public TMP_Text enemyLifes;
 
     private bool isFinished = false;
 
@@ -19,6 +21,9 @@ public class InterfaceLevel2 : MonoBehaviour
      // Update is called once per frame
     void Update()
     {
+        playerLifes.text = GameManager.currentCoins.ToString();
+        enemyLifes.text = GameManager.currentEnemyCoins.ToString();
+        
         if (GameManager.gameState == GameState.FINISHED && !isFinished)
         {
             isFinished = true;
