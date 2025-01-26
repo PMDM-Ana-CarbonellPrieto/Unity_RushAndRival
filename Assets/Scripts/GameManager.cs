@@ -3,6 +3,7 @@ public class GameManager
     public static int defaultSpeed = 70;
     public static int objectiveSpeed = 60;
     public static int boostSpeed = 140;
+    public static int defaultTimer = 40;
 
     public static bool isStarted = false;
     public static string currentObjective = "";

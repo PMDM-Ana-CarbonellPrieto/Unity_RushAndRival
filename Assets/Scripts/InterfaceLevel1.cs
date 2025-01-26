@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class InterfaceLevel1 : MonoBehaviour
 {
-    public TMP_Text count;
-    public TMP_Text objective;
-    public TMP_Text timer;
+    public TMP_Text finishText;
+    public TMP_Text coinsText;
+    public TMP_Text timerText;
     public Transform player;
     public bool showCoins = false;
 
@@ -16,7 +16,7 @@ public class InterfaceLevel1 : MonoBehaviour
     void Start()
     {
         GameManager.currentTimer = 0;
-        StartCoroutine(StartRound());
+        GameManager.currentCoins = 0;
     }
 
     // Update is called once per frame
@@ -24,45 +24,30 @@ public class InterfaceLevel1 : MonoBehaviour
     {
         if (showCoins)
         {
-            objective.text = GameManager.currentCoins + "/4";
+            coinsText.text = GameManager.currentCoins + "/4";
+        }
+
+        if (GameManager.isStarted && !showCoins) {
+            showCoins = true;
+            StartCoroutine(StartTimer());
         }
     }
 
-    private IEnumerator StartRound()
+    private IEnumerator StartTimer()
     {
-        objective.text = "";
-        GameManager.defaultSpeed = 0;
+        int maxTimePlay = GameManager.defaultTimer;
 
-        int seconds = 3;
-        while (seconds > 0)
-        {
-            count.text = seconds.ToString();
-            yield return new WaitForSeconds(1f);
-            seconds--;
-        }
-
-        count.text = "Start";
-        yield return new WaitForSeconds(1f);
-        count.text = "";
-
-        GameManager.currentSpeed = 70;
-        GameManager.currentCoins = 0;
-        showCoins = true;
-
-        int maxTimePlay = 40;
         while (maxTimePlay > 0)
         {
-            timer.text = maxTimePlay.ToString();
+            timerText.text = maxTimePlay.ToString();
             yield return new WaitForSeconds(1f);
             maxTimePlay--;
         }
-        showCoins = false;
+
+        finishText.text = "Fail Level";
         yield return new WaitForSeconds(1f);
-        count.text = "Fail Level";
-        yield return new WaitForSeconds(1f);
-        timer.text = "";
-        objective.text = "";
-        GameManager.currentSpeed = 0;
+        timerText.text = "";
+        coinsText.text = "";
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene("FailScene");
 

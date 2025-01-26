@@ -232,6 +232,7 @@ GameObject:
   - component: {fileID: 200139308}
   - component: {fileID: 200139307}
   - component: {fileID: 200139311}
+  - component: {fileID: 200139312}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -336,11 +337,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 493d4051d3d211144936eb79290a3f2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  count: {fileID: 1122573917}
-  objective: {fileID: 289760882}
-  timer: {fileID: 2043309781}
+  finishText: {fileID: 1122573917}
+  coinsText: {fileID: 289760882}
+  timerText: {fileID: 2043309781}
   player: {fileID: 1743587990}
   showCoins: 0
+--- !u!114 &200139312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200139306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce646f5d92d411e499078eeff8bcf044, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  countText: {fileID: 1122573917}
 --- !u!1001 &209824544
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -565,7 +579,7 @@ GameObject:
   - component: {fileID: 289760883}
   - component: {fileID: 289760882}
   m_Layer: 5
-  m_Name: Contador
+  m_Name: CoinsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2329,7 +2343,7 @@ GameObject:
   - component: {fileID: 1122573918}
   - component: {fileID: 1122573917}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: CentralText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4220,7 +4234,7 @@ GameObject:
   - component: {fileID: 2043309782}
   - component: {fileID: 2043309781}
   m_Layer: 5
-  m_Name: Timer
+  m_Name: TimerText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

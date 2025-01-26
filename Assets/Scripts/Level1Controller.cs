@@ -2,30 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoinsTrigger : MonoBehaviour
+public class Level1Controller : MonoBehaviour
 {
-    int counter = 0;
-
-
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Coin"))
         {
             GameManager.currentCoins++;
-            counter++;
-            print("Moneda recogida. Total: " + counter);
             Destroy(other.gameObject);
         }
         else if (other.CompareTag("CheckPoint"))
         {
-            StartCoroutine(BoostCar());
+            StartCoroutine(TakeBoost());
         }
     }
 
-    IEnumerator BoostCar()
+    IEnumerator TakeBoost()
     {
-        GameManager.defaultSpeed = 140;
+        GameManager.currentSpeed = GameManager.boostSpeed;
         yield return new WaitForSeconds(2.5f);
-        GameManager.defaultSpeed = 70;
+        GameManager.currentSpeed = GameManager.defaultSpeed;
     }
 }
