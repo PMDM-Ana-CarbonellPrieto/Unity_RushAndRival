@@ -337,11 +337,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 493d4051d3d211144936eb79290a3f2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  finishText: {fileID: 1122573917}
+  finalText: {fileID: 1122573917}
   coinsText: {fileID: 289760882}
   timerText: {fileID: 2043309781}
-  player: {fileID: 1743587990}
-  showCoins: 0
+  isStarted: 0
 --- !u!114 &200139312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -764,6 +763,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 5fc63bbf47e9d87479f11dc5b1e90302, type: 3}
       propertyPath: m_Name
       value: gate-finish
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5fc63bbf47e9d87479f11dc5b1e90302, type: 3}
+      propertyPath: m_TagString
+      value: Finish
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3829,11 +3832,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1182429419}
   m_SourcePrefab: {fileID: 100100000, guid: 75773cc04de70f54c948e9bbfa40dc94, type: 3}
---- !u!4 &1743587990 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4855505035189301181, guid: 75773cc04de70f54c948e9bbfa40dc94, type: 3}
-  m_PrefabInstance: {fileID: 1743587989}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1751196697 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 9bed235f20ba2704da17bcf51d8b8c34, type: 3}

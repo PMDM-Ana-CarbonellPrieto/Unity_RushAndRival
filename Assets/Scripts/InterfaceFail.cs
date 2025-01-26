@@ -9,17 +9,12 @@ public class InterfaceFail : MonoBehaviour
     void Start()
     {
         GameManager.currentCoins = 0;
-        GameManager.currentTimer = 0;
+        GameManager.currentTime = 0;
     }
 
     public void Click_level1()
     {
         SceneManager.LoadScene("Level1Scene");
-    }
-
-    public void Click_level2()
-    {
-        SceneManager.LoadScene("Level2Scene");
     }
 
     public void Click_title()
