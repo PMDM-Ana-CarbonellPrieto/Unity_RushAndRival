@@ -375,6 +375,7 @@ MonoBehaviour:
   coinsText: {fileID: 289760882}
   timerText: {fileID: 2043309781}
   actionButton: {fileID: 1521291911}
+  actionText: {fileID: 1295999013}
   exitButton: {fileID: 1730053223}
 --- !u!114 &200139312
 MonoBehaviour:

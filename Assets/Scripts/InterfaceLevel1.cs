@@ -22,6 +22,7 @@ public class InterfaceLevel1 : MonoBehaviour
     {
         GameManager.currentTime = 0;
         GameManager.currentCoins = 0;
+        GameManager.currentLifes = 0;
         timerText.text = "Timer: " + GameManager.defaultTimer;
         actionButton.gameObject.SetActive(false);
         exitButton.gameObject.SetActive(false);
@@ -76,6 +77,7 @@ public class InterfaceLevel1 : MonoBehaviour
     {
         if (isWinning)
         {
+            GameManager.currentLifes = GameManager.currentCoins == 0 ? 1 : GameManager.currentCoins;
             SceneManager.LoadScene("Level2Scene");
         }
         else

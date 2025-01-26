@@ -21,9 +21,9 @@ public class InterfaceLevel2 : MonoBehaviour
      // Update is called once per frame
     void Update()
     {
-        playerLifes.text = GameManager.currentCoins.ToString();
-        enemyLifes.text = GameManager.currentEnemyCoins.ToString();
-        
+        playerLifes.text = GameManager.currentLifes.ToString();
+        enemyLifes.text = GameManager.currentEnemyLifes.ToString();
+
         if (GameManager.gameState == GameState.FINISHED && !isFinished)
         {
             isFinished = true;
@@ -36,7 +36,7 @@ public class InterfaceLevel2 : MonoBehaviour
         if (winner == "Player")
         {
             finalText.text = "You win!";
-            GameManager.currentEnemyCoins--;
+            GameManager.currentEnemyLifes--;
         }
         else
         {
@@ -46,7 +46,7 @@ public class InterfaceLevel2 : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-        if (GameManager.currentCoins == 0 || GameManager.currentEnemyCoins == 0)
+        if (GameManager.currentLifes == 0 || GameManager.currentEnemyLifes == 0)
         {
             SceneManager.LoadScene("FinalScene");
         }

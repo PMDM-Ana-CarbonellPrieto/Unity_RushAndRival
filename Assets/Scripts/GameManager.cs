@@ -10,7 +10,8 @@ public class GameManager
     public static int currentCoins = 0;
     public static int currentTime = 0;
     public static int currentSpeed = 0;
-    public static int currentEnemyCoins = 3;
+    public static int currentLifes = 0;
+    public static int currentEnemyLifes = 3;
 }
 
 public enum GameState
