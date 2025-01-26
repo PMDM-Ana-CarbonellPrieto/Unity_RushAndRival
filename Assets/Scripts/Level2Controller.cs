@@ -21,7 +21,7 @@ public class Level2Controller : MonoBehaviour
             GameManager.currentSpeed = GameManager.defaultSpeed;
         }
 
-        if (GameManager.gameState == GameState.STARTED && hasObjective)
+        if (hasObjective)
         {
             objective.transform.position = transform.position + new Vector3(0, .5f, 0);
         }
