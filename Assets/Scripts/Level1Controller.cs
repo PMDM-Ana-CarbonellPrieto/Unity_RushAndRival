@@ -19,7 +19,6 @@ public class Level1Controller : MonoBehaviour
         if (transform.position.y < -5)
         {
             transform.position = respawn.position;
-            transform.rotation = transform.rotation;
         }
     }
 
