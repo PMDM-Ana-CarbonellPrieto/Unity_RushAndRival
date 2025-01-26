@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class InterfaceLevel1 : MonoBehaviour
 {
     public TMP_Text finalText;
     public TMP_Text coinsText;
     public TMP_Text timerText;
+    public Button restartButton;
+    public Button exitButton;
 
     private bool isStarted = false;
 
@@ -17,6 +20,9 @@ public class InterfaceLevel1 : MonoBehaviour
     {
         GameManager.currentTime = 0;
         GameManager.currentCoins = 0;
+        timerText.text = GameManager.defaultTimer.ToString();
+        restartButton.gameObject.SetActive(false);
+        exitButton.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -35,9 +41,9 @@ public class InterfaceLevel1 : MonoBehaviour
 
         while (time > 0 && GameManager.gameState != GameState.FINISHED)
         {
-            timerText.text = time.ToString();
             yield return new WaitForSeconds(1f);
             time--;
+            timerText.text = time.ToString();
         }
 
         StartCoroutine(EndLevel(time));
@@ -57,7 +63,18 @@ public class InterfaceLevel1 : MonoBehaviour
             GameManager.gameState = GameState.FINISHED;
             finalText.text = "You lose!";
             yield return new WaitForSeconds(2f);
-            SceneManager.LoadScene("FailScene");
+            restartButton.gameObject.SetActive(true);
+            exitButton.gameObject.SetActive(true);
         }
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene("Level1Scene");
+    }
+
+    public void Exit()
+    {
+        SceneManager.LoadScene("TitleScene");
     }
 }
