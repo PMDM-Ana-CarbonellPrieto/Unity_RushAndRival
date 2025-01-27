@@ -12,10 +12,13 @@ public class RoundController : MonoBehaviour
     public Sprite twoSprite;
     public Sprite threeSprite;
     public Sprite startSprite;
+
+    private AudioSource startRace;
     
     // Start is called before the first frame update
     void Start()
     {
+        startRace = GetComponent<AudioSource>();
         GameManager.currentSpeed = GameManager.defaultSpeed;
         StartCoroutine(StartRound());
     }
@@ -26,6 +29,7 @@ public class RoundController : MonoBehaviour
         yield return new WaitForSeconds(2f);
         
         countText.gameObject.SetActive(true);
+        startRace.Play();
         int count = 3;
         while (count > 0)
         {

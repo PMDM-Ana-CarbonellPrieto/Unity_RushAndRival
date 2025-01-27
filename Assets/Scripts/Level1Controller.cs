@@ -5,20 +5,17 @@ using UnityEngine;
 public class Level1Controller : MonoBehaviour
 {
     public Transform respawn;
+    public ParticleSystem[] boosts = new ParticleSystem[3];
+    private Vector3 respawnPosition;
     private int checkPoints = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        respawn.position += Vector3.up;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (transform.position.y < -5)
+        respawnPosition = respawn.position + Vector3.up;
+        foreach (ParticleSystem boost in boosts)
         {
-            transform.position = respawn.position;
+            boost.Stop();
         }
     }
 
@@ -37,7 +34,7 @@ public class Level1Controller : MonoBehaviour
         }
         else if (other.CompareTag("Respawn"))
         {
-            respawn = other.transform;
+            respawnPosition = other.transform.position;
         }
         else if (other.CompareTag("Finish") && checkPoints == 3)
         {
@@ -45,10 +42,25 @@ public class Level1Controller : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision other) {
+        if (other.gameObject.CompareTag("Floor"))
+        {
+            transform.position = respawnPosition;
+        }
+    }
+
     private IEnumerator TakeBoost()
     {
         GameManager.currentSpeed = GameManager.boostSpeed;
+        foreach (ParticleSystem boost in boosts)
+        {
+            boost.Play();
+        }
         yield return new WaitForSeconds(2.5f);
+        foreach (ParticleSystem boost in boosts)
+        {
+            boost.Stop();
+        }
         GameManager.currentSpeed = GameManager.defaultSpeed;
     }
 }

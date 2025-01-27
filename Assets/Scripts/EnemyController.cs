@@ -10,11 +10,13 @@ public class EnemyController : MonoBehaviour
 
     private float speed;
     private Rigidbody rb;
+    private AudioSource engine;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        engine = GetComponent<AudioSource>();
         speed = GameManager.defaultSpeed;
     }
 
@@ -34,6 +36,7 @@ public class EnemyController : MonoBehaviour
         }
         float diff = (rotation.y - car.transform.rotation.y) * .9f;
         car.transform.rotation = new Quaternion(rotation.x, rotation.y - diff, rotation.z, rotation.w);
+        engine.volume = 1;
     }
 
     private void FixedUpdate()
