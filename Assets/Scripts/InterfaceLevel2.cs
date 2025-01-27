@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class InterfaceLevel2 : MonoBehaviour
 {
-    public TMP_Text finalText;
+    public Image finalText;
+    public Sprite winSprite;
+    public Sprite loseSprite;
     public TMP_Text playerLifes;
     public TMP_Text enemyLifes;
 
@@ -33,14 +36,15 @@ public class InterfaceLevel2 : MonoBehaviour
 
     private IEnumerator EndRound(string winner)
     {
+        finalText.gameObject.SetActive(true);
         if (winner == "Player")
         {
-            finalText.text = "You win!";
+            finalText.sprite = winSprite;
             GameManager.currentEnemyLifes--;
         }
         else
         {
-            finalText.text = "You lose!";
+            finalText.sprite = loseSprite;
             GameManager.currentLifes--;
         }
 

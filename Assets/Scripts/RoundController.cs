@@ -2,10 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RoundController : MonoBehaviour
 {
-    public TMP_Text countText;
+    public Image countText;
+    public Image finalText;
+    public Sprite oneSprite;
+    public Sprite twoSprite;
+    public Sprite threeSprite;
+    public Sprite startSprite;
     
     // Start is called before the first frame update
     void Start()
@@ -17,20 +23,34 @@ public class RoundController : MonoBehaviour
     private IEnumerator StartRound()
     {
         GameManager.gameState = GameState.PREPARED;
-
         yield return new WaitForSeconds(2f);
+        
+        countText.gameObject.SetActive(true);
         int count = 3;
         while (count > 0)
         {
-            countText.text = count.ToString();
+            switch (count)
+            {
+                case 3:
+                    countText.sprite = threeSprite;
+                    break;
+                case 2:
+                    countText.sprite = twoSprite;
+                    break;
+                default:
+                    countText.sprite = oneSprite;
+                    break;
+            }
             yield return new WaitForSeconds(1f);
             count--;
         }
+        countText.gameObject.SetActive(false);
 
-        countText.text = "Start";
+        finalText.gameObject.SetActive(true);
+        finalText.sprite = startSprite;
         yield return new WaitForSeconds(1f);
-        countText.text = "";
 
+        finalText.gameObject.SetActive(false);
         GameManager.gameState = GameState.STARTED;
     }
 }

@@ -7,7 +7,9 @@ using UnityEngine.UI;
 
 public class InterfaceLevel1 : MonoBehaviour
 {
-    public TMP_Text finalText;
+    public Image finalText;
+    public Sprite winSprite;
+    public Sprite loseSprite;
     public TMP_Text coinsText;
     public TMP_Text timerText;
     public Button actionButton;
@@ -54,17 +56,18 @@ public class InterfaceLevel1 : MonoBehaviour
 
     private IEnumerator EndLevel(int time)
     {
+        finalText.gameObject.SetActive(true);
         if (time > 0)
         {
             isWinning = true;
-            finalText.text = "You win!";
+            finalText.sprite = winSprite;
             GameManager.currentTime = GameManager.defaultTimer - time;
             actionText.text = "Next Level";
         }
         else
         {
             GameManager.gameState = GameState.FINISHED;
-            finalText.text = "You lose!";
+            finalText.sprite = loseSprite;
             actionText.text = "Restart";
         }
 
