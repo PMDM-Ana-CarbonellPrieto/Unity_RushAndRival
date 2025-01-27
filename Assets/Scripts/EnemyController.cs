@@ -30,7 +30,7 @@ public class EnemyController : MonoBehaviour
             rotation = Quaternion.LookRotation(target.position - rb.transform.position);
         } else {
             speed = GameManager.defaultSpeed;
-            rotation = Quaternion.LookRotation(objective.position - rb.transform.position);
+            rotation = Quaternion.LookRotation(objective.position - new Vector3(0, .5f, 0) - rb.transform.position);
         }
         float diff = (rotation.y - car.transform.rotation.y) * .9f;
         car.transform.rotation = new Quaternion(rotation.x, rotation.y - diff, rotation.z, rotation.w);

@@ -18,6 +18,7 @@ public class RoundController : MonoBehaviour
     {
         GameManager.gameState = GameState.PREPARED;
 
+        yield return new WaitForSeconds(2f);
         int count = 3;
         while (count > 0)
         {
