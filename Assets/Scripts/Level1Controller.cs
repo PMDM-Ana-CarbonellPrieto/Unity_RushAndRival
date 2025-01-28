@@ -6,6 +6,8 @@ public class Level1Controller : MonoBehaviour
 {
     public Transform respawn;
     public ParticleSystem[] boosts = new ParticleSystem[3];
+    public AudioSource coin;
+
     private Vector3 respawnPosition;
     private int checkPoints = 0;
 
@@ -23,6 +25,7 @@ public class Level1Controller : MonoBehaviour
     {
         if (other.CompareTag("Coin"))
         {
+            coin.Play();
             GameManager.currentCoins++;
             Destroy(other.gameObject);
         }
