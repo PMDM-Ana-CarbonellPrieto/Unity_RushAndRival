@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -29,7 +27,7 @@ public class InterfaceFinal : MonoBehaviour
     {
         int score = 0;
         int time = GameManager.defaultTimer - GameManager.currentTime;
-        score += time / 10 * GameManager.defaultScore;
+        score += time * GameManager.defaultScore;
         score += GameManager.currentCoins * GameManager.defaultScore;
         score += GameManager.currentLifes * GameManager.defaultScore;
         return score;

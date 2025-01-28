@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Level2Controller : MonoBehaviour
@@ -12,6 +11,13 @@ public class Level2Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.currentObjective == "Player")
+        {
+            GameManager.currentSpeed = GameManager.objectiveSpeed;
+        } else {
+            GameManager.currentSpeed = GameManager.defaultSpeed;
+        }
+
         if (hasObjective)
         {
             objective.transform.position = transform.position + new Vector3(0, .5f, 0);

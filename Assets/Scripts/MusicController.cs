@@ -1,17 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MusicController : MonoBehaviour
 {
     private Camera camera;
-    private AudioSource music;
 
     // Start is called before the first frame update
     void Awake()
     {
-        DontDestroyOnLoad(transform.gameObject);
-        music = GetComponent<AudioSource>();
+        if (GameObject.FindGameObjectsWithTag("Music").Length > 1)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(transform.gameObject);
+        }
     }
 
     // Update is called once per frame
