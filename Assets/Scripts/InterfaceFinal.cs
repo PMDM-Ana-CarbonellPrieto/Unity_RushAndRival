@@ -12,10 +12,10 @@ public class InterfaceFinal : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timeText.text += GameManager.currentTime + "\"";
-        coinsText.text = GameManager.currentCoins.ToString();
-        lifesText.text = GameManager.currentLifes.ToString();
-        scoreText.text += CalculateScore().ToString();
+        timeText.text += GameManager.currentTime + "\""; // Tiempo de la carrera
+        coinsText.text = GameManager.currentCoins.ToString(); // Monedas recogidas
+        lifesText.text = GameManager.currentLifes.ToString(); // Vidas restantes
+        scoreText.text += CalculateScore().ToString(); // Puntuación máxima
     }
 
     public void Restart()
@@ -23,6 +23,7 @@ public class InterfaceFinal : MonoBehaviour
         SceneManager.LoadScene("TitleScene");
     }
 
+    // Calcula los puntos multiplicando las monedas, el tiempo y las vidas restantes por el multiplicador base
     private int CalculateScore()
     {
         int score = 0;

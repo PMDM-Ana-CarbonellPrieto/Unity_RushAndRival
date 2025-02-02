@@ -11,12 +11,12 @@ public class InterfaceLevel1 : MonoBehaviour
     public Sprite loseSprite;
     public TMP_Text coinsText;
     public TMP_Text timerText;
-    public Button actionButton;
-    public TMP_Text actionText;
+    public Button actionButton; // Botón para Restart y Next Level
+    public TMP_Text actionText; // Texto para Restart y Next Level
     public Button exitButton;
 
-    private bool isStarted = false;
-    private bool isWinning = false;
+    private bool isStarted = false; // Si ha empezado la carrera
+    private bool isWinning = false; // Si ha ganado la carrera
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +33,7 @@ public class InterfaceLevel1 : MonoBehaviour
     void Update()
     {
         coinsText.text = GameManager.currentCoins.ToString();
+        // Si la carrera ha empezado comienza la cuenta atrás
         if (GameManager.gameState == GameState.STARTED && !isStarted) {
             isStarted = true;
             StartCoroutine(StartTimer());
@@ -43,6 +44,7 @@ public class InterfaceLevel1 : MonoBehaviour
     {
         int time = GameManager.defaultTimer;
 
+        // Miestra quede tiempo y no haya llegado a la meta el temporizador va bajando cada segundos
         while (time > 0 && GameManager.gameState != GameState.FINISHED)
         {
             yield return new WaitForSeconds(1f);
@@ -50,12 +52,14 @@ public class InterfaceLevel1 : MonoBehaviour
             timerText.text = "Timer: " + time + "\"";
         }
 
+        // Muestra la pantalla de final de carrera
         StartCoroutine(EndLevel(time));
     }
 
     private IEnumerator EndLevel(int time)
     {
         finalText.gameObject.SetActive(true);
+        // Comprueba si quedaba tiempo ha ganado el jugador
         if (time > 0)
         {
             isWinning = true;
@@ -63,6 +67,7 @@ public class InterfaceLevel1 : MonoBehaviour
             GameManager.currentTime = GameManager.defaultTimer - time;
             actionText.text = "Next Level";
         }
+        // Si no queda tiempo ha perdido
         else
         {
             GameManager.gameState = GameState.FINISHED;
@@ -70,6 +75,7 @@ public class InterfaceLevel1 : MonoBehaviour
             actionText.text = "Restart";
         }
 
+        // Muestra los botones
         yield return new WaitForSeconds(1f);
         actionButton.gameObject.SetActive(true);
         exitButton.gameObject.SetActive(true);
@@ -77,6 +83,7 @@ public class InterfaceLevel1 : MonoBehaviour
 
     public void DoAction()
     {
+        // Si ha ganado pasa de nivel, si no reinicia el nivel
         if (isWinning)
         {
             GameManager.currentLifes = GameManager.currentCoins == 0 ? 1 : GameManager.currentCoins;
