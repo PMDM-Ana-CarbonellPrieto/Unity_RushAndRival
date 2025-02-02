@@ -25,7 +25,7 @@ public class CarController : MonoBehaviour
         car.transform.position = rb.position - new Vector3(0, .5f, 0); // Mueve el coche a la posición de la esfera
         if(GameManager.gameState != GameState.STARTED) return; // Si no ha empezado la ronda omite el código de abajo
         // Rotación del coche según input del jugador y del modelo 3D del coche, para que de impresión de que derrapa
-        car.transform.eulerAngles += new Vector3(0, Input.GetAxis("Horizontal") * .25f, 0);
+        car.transform.eulerAngles += new Vector3(0, Input.GetAxis("Horizontal") * 1.75f, 0);
         carModel.transform.eulerAngles = car.transform.eulerAngles + new Vector3(0, 180 + Input.GetAxis("Horizontal") * 10f, 0);
         engine.volume = 1 * Math.Abs(Input.GetAxis("Vertical")); // Sube el volumen del motor cuando se acelera
     }
