@@ -3,6 +3,8 @@
 ## 📖 Introducción
 **Rush&Rival** es un juego 3D low poly con vista en tercera persona desarrollado en Unity. El jugador controla un coche dentro de una pista de Scalextric ubicada en una habitación. El juego ofrece dos niveles con diferentes desafíos y mecánicas.
 
+Para una presentación detallada del juego, consulta el siguiente vídeo: [**Rush&Rival - Vídeo Demo**](https://youtu.be/A_wYvXS1zec)
+
 ## 🎮 Jugabilidad
 El juego consta de dos niveles principales:
 
